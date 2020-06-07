@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61842f24d39fb5c4ca8e6e88a90d610a, type: 3}
+  m_Name: A1Tunnels
+  m_EditorClassIdentifier: 
+  storyText: ' Tunnels
+
+    When you remained stuck in your house, people including
+    you were digging tunnels for movemnet.
+
+    
+
+    Now you can use those tunnels.
+
+    
+
+    Choice
+    1: Go to VMart Mall
+
+    
+
+    Choice 2: Take a tunnel to Corona hospital '
+  nextStates: []

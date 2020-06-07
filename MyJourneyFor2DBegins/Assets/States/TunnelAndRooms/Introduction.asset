@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61842f24d39fb5c4ca8e6e88a90d610a, type: 3}
+  m_Name: Introduction
+  m_EditorClassIdentifier: 
+  storyText: "\r\nThis deadly journey started from China and spread form Central
+    Asia to  Europe and than to whole world.\r\nAn attack of CORONA virus which scientist
+    and doctors thought to get over by 2023 turned against humanity due to extensive
+    experimentation.\r\nA total of 3.5 Billion people died on Earth.\nYou remained
+    quarantined for two years and sustained the epidemic. But your sister which was
+    in her college couldn't came back due to infection. \r\nThis is your journey
+    to find your sister.\n\nInstructions : You will be mostly asked to 2 choices
+    and you have to select one by pressing 1 or 2 on your device.\n\nLET'S SAVE YOUR
+    SISTER \n\r\nChoice 1: Start searching for the tunnels digged during the lockdown
+    periods for safe travel by people. \r\n\r\n"
+  nextStates: []

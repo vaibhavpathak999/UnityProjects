@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61842f24d39fb5c4ca8e6e88a90d610a, type: 3}
+  m_Name: A4
+  m_EditorClassIdentifier: 
+  storyText: "Store Room\r\n\r\nHey before moving forward just look at store room
+    of hospital. Collect three ppe dress. Because that's all you can collect as it
+    takes space.\r\nAnd be cautious to sanitize them by the sanitizer located below
+    the old wooden alimah.\r\n\r\nWear one PPE dress now only else you will die.\r\n\r\nNow
+    left with 2 PPE for two more days.\r\n\r\nChoice 1: Head towards the journey
+    to find your sister.\r\n\r\nChoice 2: Go to VMart via tunnels to get food and
+    give peace to your hunger\r."
+  nextStates: []
