@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61842f24d39fb5c4ca8e6e88a90d610a, type: 3}
+  m_Name: B1VMart
+  m_EditorClassIdentifier: 
+  storyText: "VMart\r\nYou have been dying of hungary for weeks. Good luck man! You
+    have got food. Eat it. Lunch Time.......Wait * _ *  Dont forget to sanetize your
+    hands.\r\n\r\nHey What wait you didnt wore PPE dress and came for collecting
+    food items.\r\n\r\n\r\n\r\nYou are foolish enough to run in mall without protection.\r\n\r\nDIE
+    NOW\r\n\r\nChoice 1: You have just started and got caught by CORONA\r\n\r\nGo
+    to Hospital;s operation Theatre Look for doctors. \r\n\r\n\r\n\r\n\r\n\r\n \r\n\r\n                        "
+  nextStates: []
