@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    public int blocksBroken = 0;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] int breakabeBlocks = 0;
+
+    SceneLoader sceneLoader; // Cache Reference
+
+    private void Start()
     {
-        
+        sceneLoader = FindObjectOfType<SceneLoader>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void CountBreakableBlocks()
     {
-        
+        breakabeBlocks++;
+    }
+    public void BlockDestroyed()
+    {
+        breakabeBlocks--;
+        if(breakabeBlocks<=0)
+        {
+            sceneLoader.LoadNextScene();
+        }
     }
 }

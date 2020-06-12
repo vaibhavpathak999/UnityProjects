@@ -9,7 +9,7 @@ public class SceneLoader : MonoBehaviour
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         int nextScene = currentScene + 1;
-        if (nextScene > 2)
+        if (nextScene > 3)
         {
             nextScene = 0;
         }

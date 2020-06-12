@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class OnCollider : MonoBehaviour
+    
 {
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene("End Game");
+        SceneManager.LoadScene("End Game", LoadSceneMode.Single);
     }
 }
 
