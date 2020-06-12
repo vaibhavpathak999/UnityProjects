@@ -202,9 +202,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 308961855509575245, guid: 26b129812dfcaa646bfe2ea90bd714af,
         type: 3}
+      propertyPath: ballSounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 308961855509575245, guid: 26b129812dfcaa646bfe2ea90bd714af,
+        type: 3}
       propertyPath: paddle1
       value: 
       objectReference: {fileID: 259512429}
+    - target: {fileID: 308961855509575245, guid: 26b129812dfcaa646bfe2ea90bd714af,
+        type: 3}
+      propertyPath: ballSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 209bc89495f8665429662facedca41f5, type: 3}
+    - target: {fileID: 308961855509575245, guid: 26b129812dfcaa646bfe2ea90bd714af,
+        type: 3}
+      propertyPath: ballSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 00563d3309bda444499cf2e73c9c316b, type: 3}
+    - target: {fileID: 308961855509575245, guid: 26b129812dfcaa646bfe2ea90bd714af,
+        type: 3}
+      propertyPath: ballSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 092b76d143bd071478fd98a33feacea3, type: 3}
+    - target: {fileID: 308961855509575245, guid: 26b129812dfcaa646bfe2ea90bd714af,
+        type: 3}
+      propertyPath: ballSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 519d1c85a9ceb8446b7f83599f710fa6, type: 3}
+    - target: {fileID: 308961855509575245, guid: 26b129812dfcaa646bfe2ea90bd714af,
+        type: 3}
+      propertyPath: ballSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 519d1c85a9ceb8446b7f83599f710fa6, type: 3}
+    - target: {fileID: 6190031894092313255, guid: 26b129812dfcaa646bfe2ea90bd714af,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b129812dfcaa646bfe2ea90bd714af, type: 3}
 --- !u!1001 &1368628011365284916

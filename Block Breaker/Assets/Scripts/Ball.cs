@@ -10,11 +10,16 @@ public class Ball : MonoBehaviour
     [SerializeField] bool hasStarted = false;
     [SerializeField] float xPush = 2f;
     [SerializeField] float yPush = 15f;
-   
+    [SerializeField] AudioClip[] ballSounds;
+
+    //creating cache memory for AudioSource component Reference
+    AudioSource myAudioSource;
+
 
     private void Start()
     {
         paddleToBallVector = transform.position - paddle1.transform.position;
+        myAudioSource = GetComponent<AudioSource>();
         
     }
 
@@ -46,7 +51,9 @@ public class Ball : MonoBehaviour
     {
         if(hasStarted)
         {
-            GetComponent<AudioSource>().Play();
+            AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
+            myAudioSource.PlayOneShot(clip);
+
         }
     }
 }
