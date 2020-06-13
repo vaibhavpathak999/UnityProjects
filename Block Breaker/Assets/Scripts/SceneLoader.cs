@@ -9,10 +9,17 @@ public class SceneLoader : MonoBehaviour
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         int nextScene = currentScene + 1;
+        
         if (nextScene > 3)
         {
             nextScene = 0;
+            FindObjectOfType<GameStatus>().ResetGame();
         }
         SceneManager.LoadScene(nextScene);
+    }
+
+    public void OnApplicationQuit()
+    {
+        Application.Quit();
     }
 }
