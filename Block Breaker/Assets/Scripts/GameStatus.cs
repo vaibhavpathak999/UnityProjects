@@ -7,7 +7,9 @@ using UnityEngine.SocialPlatforms.Impl;
 public class GameStatus: MonoBehaviour
 {
     // game config 
-    [Range(0.1f,5f)] [SerializeField] private float gameSpeed = 1f;
+    [Range(0.1f,5f)] public float gameSpeed = 1f;
+
+    [SerializeField] bool isAutoPlayEnabled;
 
     [SerializeField] TextMeshProUGUI scoreText;
 
@@ -49,5 +51,10 @@ public class GameStatus: MonoBehaviour
     {
         gameScore += blockBreakPoints;
         scoreText.text = gameScore.ToString();
+    }
+
+    public bool IsAutoPlayEnabled()
+    {
+        return isAutoPlayEnabled;
     }
 }

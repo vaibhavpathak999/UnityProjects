@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4576709727585297489}
   - component: {fileID: 1450116927091513940}
   m_Layer: 0
-  m_Name: GameSpeed
+  m_Name: GameStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,4 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8eb97b8e6080f345ad474e576bc4949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSpeed: 1
+  gameSpeed: 0.53
+  scoreText: {fileID: 0}
+  gameScore: 0
+  blockBreakPoints: 100

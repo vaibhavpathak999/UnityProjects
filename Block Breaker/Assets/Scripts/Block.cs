@@ -9,8 +9,10 @@ public class Block : MonoBehaviour
     //config params
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject particleEffectVFX;
-    [SerializeField] int maxHits=2;
     [SerializeField] Sprite[] hitSprites;
+
+    
+
 
     // reference intialization
     Level level;
@@ -28,6 +30,7 @@ public class Block : MonoBehaviour
         if (tag == "Breakable") // reading the block's tag if it is breakable blocks
         {
             level.CountBreakableBlocks();
+            
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,9 +44,12 @@ public class Block : MonoBehaviour
     private void HandleHits()
     {
         timesHit++;
+        int maxHits = hitSprites.Length + 1;
+
         if (timesHit >= maxHits)
         {
             DestroyBlock();
+            gameStatus.gameSpeed += .2f;
         }
         else
         {
@@ -54,7 +60,16 @@ public class Block : MonoBehaviour
     private void ShowNextHitSprites()
     {
         int spriteIndex = timesHit - 1;
-        GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+        if (hitSprites[spriteIndex] != null)
+        {
+            GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+        }
+        else
+        {
+            Debug.LogError("Sprite is missing");
+            Debug.Log(gameObject.name);
+            Debug.Log(gameObject.tag);
+        }
     }
 
     private void DestroyBlock()
