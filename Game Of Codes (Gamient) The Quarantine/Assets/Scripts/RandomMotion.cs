@@ -20,10 +20,9 @@ public class RandomMotion : MonoBehaviour
     [SerializeField] float maxDelay = 1f;
     Color personColor;
 
- //this is for debuging in app
- /// <summary>
- /// The below handles the motion 
- /// </summary>
+
+ //The below handles the motion 
+ 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,10 +35,8 @@ public class RandomMotion : MonoBehaviour
         {
             StartCoroutine(MovePerson());
         }
-        ///
-        // the code below shows handles the UI elements
-        ///
-       
+        // the code below shows handles the UI elements for showing for 3 seconds on tapping the person
+          
         if(Input.touchCount>0)
         {
             Touch touch = Input.GetTouch(0);
@@ -47,9 +44,9 @@ public class RandomMotion : MonoBehaviour
             Vector3 touchCoordinates = Camera.main.ScreenToWorldPoint(touch.position);
             touchCoordinates.z = 0;
             if(touchCoordinates.x <= transform.position.x + 1 && touchCoordinates.x >= transform.position.x - 1
-                && touchCoordinates.y <= transform.position.y + 1 && touchCoordinates.y >= transform.position.y - 1)
+                && touchCoordinates.y <= transform.position.y + 1 && touchCoordinates.y >= transform.position.y - 1) // logic needs improvement
             {
-                GetComponent<HealthAndImmunity>().ShowHealthDisplay();
+                GetComponent<HealthAndImmunity>().ShowHealthDisplay(); // Using ShowHealthFunction from Health and Immunity script to show health and immunity using coroutine
             }          
         }
        
@@ -64,10 +61,7 @@ public class RandomMotion : MonoBehaviour
         waiting = false;
     }
 
-    private void OnMouseDown()
-    {
-        Debug.Log("Hello");
-    }
+    // This code below manages the Infection spread 
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
         if(otherCollider.GetComponent<HealthAndImmunity>())
