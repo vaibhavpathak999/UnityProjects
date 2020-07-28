@@ -66,10 +66,11 @@ public class RandomMotion : MonoBehaviour
     {
         if(otherCollider.GetComponent<HealthAndImmunity>())
         {
-            if(GetComponent<HealthAndImmunity>().isInfected)
+            if(GetComponent<HealthAndImmunity>().isInfected) // check if the person is infected or not since it will infect the others
             {
                 otherCollider.GetComponent<HealthAndImmunity>().makePersonInfected();
             }
         }
+
     }
 }

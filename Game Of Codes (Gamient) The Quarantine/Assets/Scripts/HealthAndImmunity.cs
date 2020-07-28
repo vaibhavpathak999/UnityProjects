@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HealthAndImmunity : MonoBehaviour
 {
-    [SerializeField] float health = 100f;
+    public float health = 100f;
     [SerializeField] float immunity = 100f;
 
     public bool isInfected = false;
