@@ -16,30 +16,15 @@ public class HealthAndImmunity : MonoBehaviour
 
     [SerializeField] Canvas personHealthDisplay; // Canvas
 
-    int totalPeople = 0;
-
     [SerializeField] Text totalPeopleText;
+
+    [SerializeField] GameObject TheQuarantine; // Quarantine Prefab
 
     private void Start()
     {
         personHealthDisplay = GetComponentInChildren<Canvas>(); 
         personHealthDisplay.enabled = false; // Disabling the health and immunity canvas
-        
-        totalPeopleText = GetComponent<Text>(); // Getting the text element of TotalPeopleText
-    }
-    private void Awake()
-    {
-        AddToTotal();
-    }
-    private void SubtractFromTotal()
-    {
-        totalPeople -= 1;
-    }
-
-    private void AddToTotal()
-    {
-        totalPeople += 1;
-        UpdateTextTotalPeople();
+        //FindObjectOfType<TotolPersonManager>().AddOnePerson();
     }
 
     private void Update()
@@ -66,6 +51,7 @@ public class HealthAndImmunity : MonoBehaviour
             {
                 //SubtractFromTotal();
                 //StartCoroutine(UpdateTextTotalPeople());
+                //FindObjectOfType<TotolPersonManager>().RemoveOnePerson();
                 Destroy(gameObject);
             }
         }
@@ -95,12 +81,6 @@ public class HealthAndImmunity : MonoBehaviour
         isInfected = true;
     }
 
-    IEnumerator UpdateTextTotalPeople()
-    {
-        totalPeopleText.text = totalPeople.ToString();
-        yield return new WaitForSeconds(1f);
-    }
-
     public void ShowHealthDisplay()
     {
         StartCoroutine(ShowHealthDislplayForSeconds());
@@ -110,5 +90,25 @@ public class HealthAndImmunity : MonoBehaviour
         personHealthDisplay.enabled = true;
         yield return new WaitForSeconds(3);
         personHealthDisplay.enabled = false;
+    }
+
+    // below code is for implementing the Quarantine power up
+    public void QuarantineEffect()
+    {
+        GetComponent<RandomMotion>().personSpeed = 0;
+        isInfected = false;
+        StartCoroutine(InstantiatingQuarantine());
+        StartCoroutine(WaitingForQuarantineEffect());
+    }
+    IEnumerator WaitingForQuarantineEffect()
+    {
+        yield return new WaitForSeconds(10);
+        GetComponent<Collider2D>().isTrigger = false;
+        GetComponent<RandomMotion>().personSpeed = 20;
+    }
+    IEnumerator InstantiatingQuarantine()
+    {
+        yield return new WaitForSeconds(1f);
+        Instantiate(TheQuarantine, GetComponent<Transform>().position, Quaternion.identity);
     }
 }

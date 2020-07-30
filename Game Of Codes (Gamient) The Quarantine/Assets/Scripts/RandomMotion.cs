@@ -11,7 +11,7 @@ public class RandomMotion : MonoBehaviour
 
     public bool isMoving = false;
     public bool waiting = false;
-    [SerializeField] float personSpeed = 0.5f;
+    public float personSpeed = 0.5f;
     [SerializeField] float minXVelocity = -2f;
     [SerializeField] float maxXVelocity = 2f;
     [SerializeField] float minYVelocity = -2f;
@@ -71,6 +71,5 @@ public class RandomMotion : MonoBehaviour
                 otherCollider.GetComponent<HealthAndImmunity>().makePersonInfected();
             }
         }
-
     }
 }

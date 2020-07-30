@@ -4,11 +4,12 @@ using System.Net;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class ImmunityDrink : MonoBehaviour
+public class SelfQuarantineInstantiator : MonoBehaviour
 {
     private Vector3 mouseOffset;
     private float mouseZCoord;
     bool mouseIsReleased = false;
+    
 
 
     void OnMouseDown()
@@ -41,7 +42,8 @@ public class ImmunityDrink : MonoBehaviour
     {
         if(otherCollider.GetComponent<HealthAndImmunity>().isInfected)
         {
-            otherCollider.GetComponent<HealthAndImmunity>().SetImmunity(50);
+            otherCollider.GetComponent<HealthAndImmunity>().QuarantineEffect();
+            GetComponent<Collider2D>().isTrigger = false;
             Destroy(gameObject);
         }
     }

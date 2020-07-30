@@ -3,7 +3,11 @@ guid: aa4d8e42dd1b8b048ab104ed0db87ab0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - personHealthDisplay: {instanceID: 0}
+  - totalPeopleText: {instanceID: 0}
+  - TheQuarantine: {fileID: 7917013572217589762, guid: ed9e0577750c0b74dafcb59bda64767d,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
