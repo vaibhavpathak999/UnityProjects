@@ -111,4 +111,16 @@ public class HealthAndImmunity : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Instantiate(TheQuarantine, GetComponent<Transform>().position, Quaternion.identity);
     }
+
+    // below code is for implementing the Sanatizer Effect
+    public void SanatizerEffect()
+    {
+        StartCoroutine(SanatizePerson());
+    }
+    IEnumerator SanatizePerson()
+    {
+        isInfected = false;
+        yield return new WaitForSeconds(5);
+        isInfected = true;
+    }
 }

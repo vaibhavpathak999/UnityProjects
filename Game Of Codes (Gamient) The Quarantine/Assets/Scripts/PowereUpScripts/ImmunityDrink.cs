@@ -39,10 +39,13 @@ public class ImmunityDrink : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        if(otherCollider.GetComponent<HealthAndImmunity>().isInfected)
+        if (otherCollider.GetComponent<HealthAndImmunity>())
         {
-            otherCollider.GetComponent<HealthAndImmunity>().SetImmunity(50);
-            Destroy(gameObject);
+            if (otherCollider.GetComponent<HealthAndImmunity>().isInfected)
+            {
+                otherCollider.GetComponent<HealthAndImmunity>().SetImmunity(50);
+                Destroy(gameObject);
+            }
         }
     }
 }

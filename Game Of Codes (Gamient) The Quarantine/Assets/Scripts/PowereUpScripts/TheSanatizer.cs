@@ -4,12 +4,11 @@ using System.Net;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class SelfQuarantineInstantiator : MonoBehaviour
+public class TheSanatizer : MonoBehaviour
 {
     private Vector3 mouseOffset;
     private float mouseZCoord;
     bool mouseIsReleased = false;
-    
 
 
     void OnMouseDown()
@@ -44,8 +43,12 @@ public class SelfQuarantineInstantiator : MonoBehaviour
         {
             if (otherCollider.GetComponent<HealthAndImmunity>().isInfected)
             {
-                otherCollider.GetComponent<HealthAndImmunity>().QuarantineEffect();
-                GetComponent<Collider2D>().isTrigger = false;
+                otherCollider.GetComponent<HealthAndImmunity>().SanatizerEffect();
+                StartCoroutine(WaitForPuttingSanatizer());
+            }
+            IEnumerator WaitForPuttingSanatizer()
+            {
+                yield return new WaitForSeconds(2f);
                 Destroy(gameObject);
             }
         }
