@@ -9,7 +9,7 @@ public class TotolPersonManager : MonoBehaviour
     int totalPerson=0;
 
     void Start()
-    {
+    { 
         totalPopulation = GetComponent<Text>();
         totalPopulation.text = totalPerson.ToString();
     }

@@ -72,4 +72,21 @@ public class RandomMotion : MonoBehaviour
             }
         }
     }
+
+    // This code below manages the lockdown effect 
+    public void LockdownEffect()
+    {
+        var persons = FindObjectsOfType<RandomMotion>();
+        foreach (RandomMotion person in persons)
+        {
+            StartCoroutine(LockdownEffect());
+
+        IEnumerator LockdownEffect()
+        {
+            person.GetComponent<RandomMotion>().personSpeed = 0;
+            yield return new WaitForSeconds(10);
+            person.GetComponent<RandomMotion>().personSpeed = 20;
+        }
+        }
+    }
 }

@@ -16,22 +16,30 @@ public class HealthAndImmunity : MonoBehaviour
 
     [SerializeField] Canvas personHealthDisplay; // Canvas
 
-    [SerializeField] Text totalPeopleText;
+
+    //private ParticleSystem ps;
+
+    //[SerializeField] Text totalPeopleText;
 
     [SerializeField] GameObject TheQuarantine; // Quarantine Prefab
 
     private void Start()
     {
+        //StopCoronaParticleEffect();
         personHealthDisplay = GetComponentInChildren<Canvas>(); 
         personHealthDisplay.enabled = false; // Disabling the health and immunity canvas
-        //FindObjectOfType<TotolPersonManager>().AddOnePerson();
+        //ps = GetComponentInChildren<ParticleSystem>();
+        //var main = ps.main;
+        //main.loop = false;
+
     }
 
     private void Update()
     {
         if(isInfected)
         {
-            
+            //PlayCoronaParticelEffect();
+
             personHealthDisplay.enabled = true;
 
             if(immunity >0 || health >0)
@@ -49,9 +57,6 @@ public class HealthAndImmunity : MonoBehaviour
             }
             if(health<0)
             {
-                //SubtractFromTotal();
-                //StartCoroutine(UpdateTextTotalPeople());
-                //FindObjectOfType<TotolPersonManager>().RemoveOnePerson();
                 Destroy(gameObject);
             }
         }
@@ -96,6 +101,7 @@ public class HealthAndImmunity : MonoBehaviour
     public void QuarantineEffect()
     {
         GetComponent<RandomMotion>().personSpeed = 0;
+     
         isInfected = false;
         StartCoroutine(InstantiatingQuarantine());
         StartCoroutine(WaitingForQuarantineEffect());
@@ -103,7 +109,7 @@ public class HealthAndImmunity : MonoBehaviour
     IEnumerator WaitingForQuarantineEffect()
     {
         yield return new WaitForSeconds(10);
-        GetComponent<Collider2D>().isTrigger = false;
+        GetComponent<Collider2D>().enabled = false;
         GetComponent<RandomMotion>().personSpeed = 20;
     }
     IEnumerator InstantiatingQuarantine()
@@ -123,4 +129,18 @@ public class HealthAndImmunity : MonoBehaviour
         yield return new WaitForSeconds(5);
         isInfected = true;
     }
+
+    /*
+    private void PlayCoronaParticelEffect()
+    {
+        ps = GetComponentInChildren<ParticleSystem>();
+        var main = ps.main;
+        main.loop = true;
+    }
+    private void StopCoronaParticleEffect()
+    {
+        ps = GetComponentInChildren<ParticleSystem>();
+        var main = ps.main;
+        main.loop = false;
+    } */
 }

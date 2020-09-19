@@ -37,14 +37,17 @@ public class HealthBooster : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        if (otherCollider.GetComponent<HealthAndImmunity>().isInfected)
+        if (otherCollider.GetComponent<HealthAndImmunity>())
         {
-            otherCollider.GetComponent<HealthAndImmunity>().SetHealth(50);
-            Destroy(gameObject);
-        }
-        else
-        {
-            return;
+            if (otherCollider.GetComponent<HealthAndImmunity>().isInfected)
+            {
+                otherCollider.GetComponent<HealthAndImmunity>().SetHealth(50);
+                Destroy(gameObject);
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
