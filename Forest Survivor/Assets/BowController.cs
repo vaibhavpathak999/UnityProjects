@@ -5,65 +5,14 @@ using UnityEngine.UI;
 
 public class BowController : MonoBehaviour
 {
-    [SerializeField] Bow bow;
+    [SerializeField] GameObject bow;
+    [SerializeField] Camera cam;
     public bool rotate;
     protected Plane plane;
     public bool isPanning = true;
     // new Camera variables
     //[SerializeField] Camera FPS_Camera;
-    [SerializeField] Canvas FPS_UI_Canvas;
-    //public bool isFPS = false;
-    //public bool isMainCameraOn = false;
-    //[SerializeField] GameObject FPS_Player_GameObject;
-    //
-    // implementing FPS Camera 
-
-    //{
-        //AllowPanning();
-        //GetComponent<PowerUpButton>().PlayButtonSound();
-        //FPS_Camera.GetComponent<Camera>().enabled = false;
-        //GetComponent<PauseManagerScript>().EnableUICanvas();
-        //cam.enabled = true;
-        //cam.GetComponent<Camera>().enabled = true;
-        //isMainCameraOn = true;
-        //FPS_UI_Canvas.enabled = false;
-    //}
-    //public void PlayFPSCamera()
-    //{
-        //StopPanning();
-        //GetComponent<PowerUpButton>().PlayButtonSound();
-        //GetComponent<PauseManagerScript>().DisableUICanvas();
-        //cam.enabled = false;
-        //cam.GetComponent<Camera>().enabled = false;
-        //FPS_Camera.enabled = true;
-        //FPS_UI_Canvas.enabled = true;
-        //FPS_Camera.GetComponent<Camera>().enabled = true;
-        //isMainCameraOn = false;
-    //}
-
-    /*
-    public void FPSPlayButton()
-    {
-        if (!GetComponent<HelperCanvas>().isAnyCanvasOpened)
-        {
-            if (GetComponent<CoinController>().is3DViewerEnabled)
-            {
-                if (isFPS)
-                {
-                    FPS_Player_GameObject.SetActive(false);
-                    PlayMainCamera();
-                    isFPS = false;
-                }
-                else
-                {
-                    FPS_Player_GameObject.SetActive(true);
-                    PlayFPSCamera();
-                    isFPS = true;
-                }
-            }
-        }
-    } */
-    // 
+    
     private void Update()
     {
 
@@ -78,18 +27,27 @@ public class BowController : MonoBehaviour
 
 
             //Scroll
-            /*
             if (Input.touchCount >= 1)
             {
                 Delta1 = PlanePositionDelta(Input.GetTouch(0));
-                if (Input.GetTouch(0).phase == TouchPhase.Moved)
+              // if (Input.GetTouch(0).phase == TouchPhase.Moved)
+                //{
+                  //  bow.transform.Translate(Delta1, Space.World);
+                    //bow.transform.Rotate(Vector3 (0,D))
+               //}
+            }
+            //Pinch
+            if(Input.touchCount >= 0)
+            {
+                var pos1 = PlanePosition(Input.GetTouch(0).position);
+                var pos1b = PlanePosition(Input.GetTouch(0).position - Input.GetTouch(0).deltaPosition);
+                if(rotate)
                 {
-                    bow.transform.Translate(Delta1, Space.World);
+                    Vector3 RotationAngle =new Vector3.SignedAngle(pos1, pos1 - pos1b, plane.normal)
+                    bow.transform.Rotate(V);
                 }
             }
-            */
-            //Pinch
-            if (Input.touchCount >= 2 && cam.transform.position.y <= 40f && cam.transform.position.y >= 5f)
+            /*if (Input.touchCount >= 2)
             {
                 var pos1 = PlanePosition(Input.GetTouch(0).position);
                 var pos2 = PlanePosition(Input.GetTouch(1).position);
@@ -97,19 +55,18 @@ public class BowController : MonoBehaviour
                 var pos2b = PlanePosition(Input.GetTouch(1).position - Input.GetTouch(1).deltaPosition);
 
                 //calc zoom
-                var zoom = Vector3.Distance(pos1, pos2) /
-                           Vector3.Distance(pos1b, pos2b);
+                //var zoom = Vector3.Distance(pos1, pos2)/Vector3.Distance(pos1b, pos2b);
 
                 //edge case
                 //if (zoom == 0 || zoom > 10)
-                    return;
+                   // return;
 
-            */
+            
                 //cam.transform.position = Vector3.LerpUnclamped(pos1, cam.transform.position, 1 / zoom);
-                if (rotate && pos2b != pos2)
-                    cam.transform.RotateAround(pos1, plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, plane.normal));
-            }
-
+                //if (rotate && pos2b != pos2)
+                    //bow.GetComponent<Transform>().RotateAround(pos1, plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, plane.normal));
+            }*/
+            /*
             if (cam.transform.position.y > 30f)
                 cam.transform.position = new Vector3(cam.transform.position.x, 30f, cam.transform.position.z);
             if (cam.transform.position.y < 5f)
@@ -122,6 +79,7 @@ public class BowController : MonoBehaviour
                 cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, 30f);
             if (cam.transform.position.z < -30f)
                 cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, -30f);
+            */
         }
     }
 

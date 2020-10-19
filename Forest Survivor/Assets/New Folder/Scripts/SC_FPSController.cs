@@ -14,6 +14,7 @@ public class SC_FPSController : MonoBehaviour
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
     [SerializeField] Joystick joystick;
+    public float jumpThrust = 5f;
 
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
@@ -71,5 +72,10 @@ public class SC_FPSController : MonoBehaviour
             //playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, joystick.Horizontal * lookSpeed * 0.5f, 0);
         }
+    }
+    public void playerJump()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward*jumpThrust);
     }
 }
